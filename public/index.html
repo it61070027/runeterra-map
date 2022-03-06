@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Runeterra map</title>
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
   <!-- update the version number as needed -->
   <script defer src="/__/firebase/9.6.7/firebase-app-compat.js"></script>
   <!-- include only the Firebase features as you need -->
@@ -32,15 +34,38 @@
 </head>
 
 <body style="background-color: rgb(65,65,65);">
-  <!-- <div class="container h-100 w-100" id="container">
+  <div class="wrapper">
+    <nav id="sidebar" style="padding: 10px;">
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn-close btn-close-white" aria-label="Close" onclick="removeSideBar()"></button>
+      </div>
+      <div class="sidebar-header">
+        <h2 id="headerSide"></h2>
+      </div>
+
+      <ul class="list-unstyled components">
+        <h5 id="subHeaderSide"></h5>
+        <hr>
+        <p id="textSide"></p>
+      </ul>
+
+    </nav>
+
+  </div>
+
+  <div class="container h-100 w-100" id="container">
     <div class="row h-100 justify-content-center align-items-center w-100">
       <button type="button" id="login" class="btn btn-primary col-2">Login with MetaMask</button>
     </div>
-  </div> -->
   </div>
-  <div id="canvas"></div>
-  <!-- <div style="display: none;" id="canvas"></div> -->
+  </div>
+  <div style="display: none;" id="canvas"></div>
   <script type="module" src="./threeJS.mjs"></script>
+  <script>
+    const removeSideBar = () => {
+      document.getElementById('sidebar').classList.remove('active')
+    }
+  </script>
   <script>
     window.userWalletAddress = null
     const login = document.getElementById('login')
@@ -72,6 +97,17 @@
       toggleButton()
     });
   </script>
+  <!-- jQuery CDN - Slim version (=without AJAX) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <!-- Popper.JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+    integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+  <!-- jQuery Custom Scroller CDN -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 </body>
 
 </html>
